@@ -3,11 +3,11 @@ import { AddCategory, GifGrid } from './components';
 
 export const GifExpertApp = () => {
   const [categories, setCategories] = useState([]);
-  
+
   const onAddCategory = (newCategory) => {
     if (categories.includes(newCategory.toLowerCase())) return;
-    
-    setCategories([newCategory.toLowerCase(),...categories]);
+
+    setCategories([newCategory.toLowerCase(), ...categories]);
   };
 
   return (
@@ -19,7 +19,7 @@ export const GifExpertApp = () => {
       <AddCategory 
         onNewCategory={ onAddCategory }
       />
-      
+
       {/* Lista de Gif */}
       { 
         categories.map(category => (
@@ -30,7 +30,6 @@ export const GifExpertApp = () => {
         ))
       }
         {/* Gif Item */}
-
     </>
   );
 };

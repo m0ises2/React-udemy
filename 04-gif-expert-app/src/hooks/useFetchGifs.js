@@ -7,11 +7,11 @@ export const useFetchGifs = (category) => {
 
     const getImages = async () => {
       const images = await getGifs(category);
-  
+
       setImages(images);
       setIsLoading(false);
     };
-  
+
     useEffect(()=> {
         getImages()
     },[]);
