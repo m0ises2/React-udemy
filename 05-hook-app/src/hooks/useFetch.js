@@ -6,9 +6,14 @@ export const useFetch = (url) => {
         data: null,
         isLoading: true,
         hasError: null
-    })
+    });
 
     const fetchQuotes = async () => {
+        setState({
+            ...state,
+            isLoading: true,
+        })
+
         const response = await fetch(url);
         const data = await response.json();
 
