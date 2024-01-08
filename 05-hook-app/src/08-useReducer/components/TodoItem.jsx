@@ -8,6 +8,7 @@ export const TodoItem = ({ id, description, done, onDeleteTodo, onToggleTodo }) 
           <span
             className={ `align-self-center ${ done ? 'text-decoration-line-through' : '' }`}
             onClick={ () => { onToggleTodo(id) }}
+            aria-label="span"
           >
             { 
               description
