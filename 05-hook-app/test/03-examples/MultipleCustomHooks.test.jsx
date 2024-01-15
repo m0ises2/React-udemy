@@ -16,7 +16,7 @@ describe('MultipleCustomHooks', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-  });
+  }); 
 
   test('Debe mostrar el componente por defecto', () => {
     useFetch.mockReturnValue({
