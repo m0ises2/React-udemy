@@ -30,6 +30,6 @@ describe('Pruebas en MainApp', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Aboutw Page')).toBeTruthy();
+    expect(screen.getByText('About Page')).toBeTruthy();
   });
 });
