@@ -8,13 +8,17 @@ export const LoginPage = () => {
     <>
       <h1> Login Page </h1>
       <hr />
-      <pre>
+      <pre aria-label="pre">
         { JSON.stringify(user, null, 2)}
       </pre>
 
       <button
         className="btn btn-primary"
-        onClick={ () => setUser({ id: 1, name: 'paquito', email: 'pancho@google.com' })}
+        onClick={ () => setUser({
+          id: 1,
+          name: 'paquito',
+          email: 'pancho@google.com'
+        })}
       >
         Set User
       </button>
