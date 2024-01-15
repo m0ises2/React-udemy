@@ -1,6 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { MainApp } from '../../src/09-useContext/MainApp';
-import { UserProvider } from '../../src/09-useContext/context/UserProvider';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Pruebas en MainApp', () => {
@@ -31,6 +30,6 @@ describe('Pruebas en MainApp', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('About Page')).toBeTruthy();
+    expect(screen.getByText('Aboutw Page')).toBeTruthy();
   });
 });
