@@ -1,5 +1,6 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHeroById } from "../helpers/getHeroById";
+import { useMemo } from "react";
 
 export const HeroePage = () => {
   const navigate = useNavigate();
@@ -7,14 +8,14 @@ export const HeroePage = () => {
   const onNavigateBack = () => navigate(-1);
 
   const { id } = useParams();
-  const hero = getHeroById(id);
+  const hero = useMemo(() => getHeroById(id), [id]);
 
   if (!hero) {
     return <Navigate to="/marvel" />
   };
 
   return (
-    <div className="row mt-5">
+    <div className="row mt-5 animate__animated animate__fadeInLeft animate__fast">
       <div className="col-4">
         <img
           src={`/assets/heroes/${id}.jpg`}
