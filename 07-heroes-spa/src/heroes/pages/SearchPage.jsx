@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import { HeroCard } from "../components";
 import { useForm } from "../../hooks/useForm";
+import { getHeroesByName } from "../helpers/getHeroesByName";
 
 export const SearchPage = () => {
   const navigate = useNavigate();
@@ -11,8 +12,10 @@ export const SearchPage = () => {
   const { q: heroToQuery = '' } = queryString.parse(location.search);
 
   const { searchText, onInputChange } = useForm({
-    searchText: ''
+    searchText: heroToQuery
   });
+
+  const heroesResults = getHeroesByName(heroToQuery);
 
   const onSearchSubmit = (event) => {
     event.preventDefault();
@@ -38,7 +41,7 @@ export const SearchPage = () => {
               className="form-control"
               name="searchText"
               autoComplete="off"
-              value={searchText}
+              value={ searchText }
               onChange={ onInputChange }
             />
 
@@ -52,7 +55,9 @@ export const SearchPage = () => {
           <div className="alert alert-primary"> Search a Hero </div>
           <div className="alert alert-danger"> There're not results with { heroToQuery } </div>
 
-          {/* <HeroCard /> */}
+          {
+            heroesResults.map( hero => ( <HeroCard key = {hero.id} {...hero}/> ))
+          }
         </div>
       </div>
     </>
