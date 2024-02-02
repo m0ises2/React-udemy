@@ -20,10 +20,11 @@ export const SearchPage = () => {
   const onSearchSubmit = (event) => {
     event.preventDefault();
 
-    if (searchText.trim().length <= 1) return;
-
     navigate(`?q=${searchText.toLowerCase().trim()}`);
   }
+
+  const showSearch = (heroToQuery.length === 0);
+  const showError = (heroToQuery.length > 0) && (heroesResults.length === 0);
 
   return (
     <>
@@ -52,8 +53,22 @@ export const SearchPage = () => {
         <div className="col-7">
           <h4> Results </h4>
           <hr />
-          <div className="alert alert-primary"> Search a Hero </div>
-          <div className="alert alert-danger"> There're not results with { heroToQuery } </div>
+          {
+            // (heroToQuery === '') 
+            //   ? <div className="alert alert-primary"> Search a Hero </div>
+            //   : (heroesResults.length === 0 ) && <div className="alert alert-danger"> There're not results with { heroToQuery } </div>
+          }
+
+          {/* <div className="alert alert-primary" style={{ display: heroToQuery !== '' ? 'none' : '' }}> Search a Hero </div>
+          <div className="alert alert-danger" style={{ display: heroesResults.length === 0 ? 'none' : '' }}> There're not results with { heroToQuery } </div> */}
+
+          <div className="alert alert-primary animate__animated animate__fadeIn animate__fast" style={{ display: showSearch ? '' : 'none' }}>
+            Search a Hero
+          </div>
+
+          <div className="alert alert-danger animate__animated animate__fadeIn animate__fast" style={{ display: showError ? '' : 'none' }}>
+            There're not results with { heroToQuery }
+          </div>
 
           {
             heroesResults.map( hero => ( <HeroCard key = {hero.id} {...hero}/> ))
