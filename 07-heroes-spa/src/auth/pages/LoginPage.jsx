@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context'
 
 export const LoginPage = () => {
   const navigate = useNavigate();
   
-  const { login } = useContext(AuthContext);
+  const { authState: { logged }, login } = useContext(AuthContext);
 
   const onLogin = () => {
     login('Moisés');
@@ -16,11 +16,16 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className='container mt-5'>
-      <h1> Login </h1>
-      <hr />
+    logged ?
+      <Navigate to='/'/>
+    :
+    <>
+      <div className='container mt-5'>
+        <h1> Login </h1>
+        <hr />
 
-      <button className='btn btn-primary' onClick={ onLogin }> Login </button>
-    </div>
+        <button className='btn btn-primary' onClick={ onLogin }> Login </button>
+      </div>
+    </>
   )
 }
