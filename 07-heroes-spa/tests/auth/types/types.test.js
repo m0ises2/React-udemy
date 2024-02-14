@@ -1,4 +1,4 @@
-import { types } from "../../../../src/auth/types/types";
+import { types } from "../../../src/auth/types/types";
 
 describe('types tests', () => {
   test('types should be the listed ones', () => {
