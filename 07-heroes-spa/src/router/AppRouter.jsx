@@ -7,14 +7,6 @@ import { DCPage, HeroePage, MarvelPage, SearchPage } from '../heroes/pages';
 import { LoginPage } from '../auth';
 import { HeroesRoutes } from '../heroes/routes/HeroesRoutes';
 
-export const AppRouter = () => {
-  return(
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
-}
-
 const router = createBrowserRouter([
   {
     path: '/login',
@@ -52,3 +44,11 @@ const router = createBrowserRouter([
     ]
   }
 ]);
+
+export const AppRouter = () => {
+  return(
+    <>
+      <RouterProvider router={router} />
+    </>
+  )
+}
