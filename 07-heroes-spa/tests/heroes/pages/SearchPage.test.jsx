@@ -35,4 +35,24 @@ describe('SearchPage tests', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  test('should show the searched hero and the input with the search value in it', () => {
+    const router = createMemoryRouter(routes, {
+      initialEntries: ['/?q=batman']
+    });
+
+    render(
+        <AuthContext.Provider value={ contextValue }>
+          <RouterProvider router={router} />
+        </AuthContext.Provider>    
+    );
+    
+    const input = screen.getByRole('textbox');
+    const img = screen.getByRole('img');
+    const hiddenMsg = screen.getByLabelText('search-a-hero-msg');
+
+    expect(input.value).toBe('batman');
+    expect(img.src).toContain('/assets/heroes/dc-batman.jpg');
+    expect(hiddenMsg.style.display).toContain('none');
+  });
 });
