@@ -16,7 +16,9 @@ exports[`SearchPage tests should match the defaults values agains snapshot 1`] =
          Searching 
       </h4>
       <hr />
-      <form>
+      <form
+        aria-label="form"
+      >
         <input
           autocomplete="off"
           class="form-control"
@@ -46,6 +48,7 @@ exports[`SearchPage tests should match the defaults values agains snapshot 1`] =
         Search a Hero
       </div>
       <div
+        aria-label="no-hero-error-msg"
         class="alert alert-danger animate__animated animate__fadeIn animate__fast"
         style="display: none;"
       >
