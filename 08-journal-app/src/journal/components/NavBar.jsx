@@ -13,7 +13,7 @@ export const NavBar = ({ drawerWidth = 240 }) => {
         <Toolbar>
             <IconButton
                 color='inherit'
-                edge="start"
+                edge='start'
                 sx= {{ mr: 2, display: { sm: 'none' }}}
             >
                 <MenuOutlined />
