@@ -1,7 +1,6 @@
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
 import { PokemonApp } from './PokemonApp.jsx';
 import { store } from './store/store';
 import './index.css';
