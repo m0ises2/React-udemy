@@ -10,7 +10,6 @@ export const PokemonApp = () => {
     dispatch(getPokemons());
   }, [])
 
-
   return (
     <>
         <h1> PokemonApp </h1>
